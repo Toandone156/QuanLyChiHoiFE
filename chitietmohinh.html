@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mô hình hoạt động - Cập nhật thông tin hoạt động Hội</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Cập nhật thông tin hoạt động Hội quận Thanh Khê" name="keywords" />
+    <meta content="Cập nhật thông tin hoạt động Hội quận Thanh Khê" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <!-- <link href="lib/animate/animate.min.css" rel="stylesheet" /> -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Datatables -->
+    <link href="DataTables/datatables.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div
+        class="spinner-border text-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav
+      class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-4 px-lg-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <a href="index.html" class="navbar-brand p-0">
+        <img class="img-fluid me-3" src="img/icon/icon-10.png" alt="Icon" />
+        <h1 class="m-0 text-primary">Hoạt động Hội quận Thanh Khê</h1>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse py-4 py-lg-0" id="navbarCollapse">
+        <div class="navbar-nav ms-auto">
+          <a href="index.html" class="nav-item nav-link active">Mô hình hoạt động</a>
+          <a href="about.html" class="nav-item nav-link">Hoạt động chi hội</a>
+          <a href="service.html" class="nav-item nav-link">Văn bản chỉ đạo / Tuyên truyền</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Facts Start -->
+    <div
+      class="container-xxl bg-primary facts my-5 py-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+    >
+      <div class="container py-5">
+        <h1
+          class="display-5 text-center mb-5 text-white"
+          data-wow-delay="0.1s"
+        >
+          Mô hình bảo vệ môi trường
+        </h1>
+      </div>
+    </div>
+    <!-- Facts End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-12">
+            <h1 class="display-5 mb-0">
+              Mô hình "Bình hoa an sinh xã hội"
+            </h1>
+          </div>
+        </div>
+        <div class="row gy-5 gx-4">
+          <table id="datatables" class="display responsive nowrap col-12">
+            <thead>
+                <tr>
+                    <th>Chi hội</th>
+                    <th>Số bình</th>
+                    <th>Số lượng rác thải thu gom (kg)</th>
+                    <th>Số tiền gây quỹ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chi hội 8 Thuận An - Phường An Khê</td>
+                    <td>3</td>
+                    <td>520</td>
+                    <td>2,604,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Tân An A3 - Phường Chính Gián</td>
+                    <td>2</td>
+                    <td>200</td>
+                    <td>600,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 Thanh Khê - Phường Hòa Khê</td>
+                    <td>1</td>
+                    <td>350</td>
+                    <td>450,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 6 Tân An B - Phường Tân Chính</td>
+                    <td>2</td>
+                    <td>157</td>
+                    <td>512,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Bình A3 - Phường Thạc Gián</td>
+                    <td>1</td>
+                    <td>120</td>
+                    <td>520,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Xuân Hòa 1 - Phường Thanh Khê Đông</td>
+                    <td>3</td>
+                    <td>280</td>
+                    <td>612,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 - Phường Thanh Khê Tây</td>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Chi hội 14 - Phường Tam Thuận</td>
+                    <td>3</td>
+                    <td>40</td>
+                    <td>150,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Hòa B3 - Phường Vĩnh Trung</td>
+                    <td>2</td>
+                    <td>231</td>
+                    <td>720,000</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Thuận An 1 - Phường Xuân Hà</td>
+                    <td>2</td>
+                    <td>890</td>
+                    <td>6,000,000</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-12">
+            <h1 class="display-5 mb-0">
+              Thu gom pin
+            </h1>
+          </div>
+        </div>
+        <div class="row gy-5 gx-4">
+          <table id="datatables" class="display responsive nowrap col-12">
+            <thead>
+                <tr>
+                    <th>Chi hội</th>
+                    <th>Số bình</th>
+                    <th>Số ký</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chi hội 8 Thuận An - Phường An Khê</td>
+                    <td>1</td>
+                    <td>3.5</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Tân An A3 - Phường Chính Gián</td>
+                    <td>1</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 Thanh Khê - Phường Hòa Khê</td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 6 Tân An B - Phường Tân Chính</td>
+                    <td>4</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Bình A3 - Phường Thạc Gián</td>
+                    <td>1</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Xuân Hòa 1 - Phường Thanh Khê Đông</td>
+                    <td>1</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 - Phường Thanh Khê Tây</td>
+                    <td>1</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 14 - Phường Tam Thuận</td>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Hòa B3 - Phường Vĩnh Trung</td>
+                    <td>2</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Thuận An 1 - Phường Xuân Hà</td>
+                    <td>2</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-12">
+            <h1 class="display-5 mb-0">
+              Mô hình "Đoạn đường tự quản, tuyến phố nở hoa"
+            </h1>
+          </div>
+        </div>
+        <div class="row gy-5 gx-4">
+          <table id="datatables" class="display responsive nowrap col-12">
+            <thead>
+                <tr>
+                    <th>Chi hội</th>
+                    <th>Số đoạn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chi hội 6 Tân An B - Phường Tân Chính</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Bình A3 - Phường Thạc Gián</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Xuân Hòa 1 - Phường Thanh Khê Đông</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 14 - Phường Tam Thuận</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Hòa B3 - Phường Vĩnh Trung</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Thuận An 1 - Phường Xuân Hà</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-12">
+            <h1 class="display-5 mb-0">
+              Mô hình "Vườn rau đô thị"
+            </h1>
+          </div>
+        </div>
+        <div class="row gy-5 gx-4">
+          <table id="datatables" class="display responsive nowrap col-12">
+            <thead>
+                <tr>
+                    <th>Chi hội</th>
+                    <th>Số lượng</th>
+                    <th>Diện tích</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chi hội Xuân Hòa 1 - Phường Thanh Khê Đông</td>
+                    <td>1</td>
+                    <td>130</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 - Phường Thanh Khê Tây</td>
+                    <td>2</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 14 - Phường Tam Thuận</td>
+                    <td>25</td>
+                    <td>300</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+      <div class="container">
+        <div class="row g-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
+          <div class="col-12">
+            <h1 class="display-5 mb-0">
+              Ra quân dọn vệ sinh môi trường
+            </h1>
+          </div>
+        </div>
+        <div class="row gy-5 gx-4">
+          <table id="datatables" class="display responsive nowrap col-12">
+            <thead>
+                <tr>
+                    <th>Chi hội</th>
+                    <th>Số đợt</th>
+                    <th>Số người</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chi hội 8 Thuận An - Phường An Khê</td>
+                    <td>6</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Tân An A3 - Phường Chính Gián</td>
+                    <td>12</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 Thanh Khê - Phường Hòa Khê</td>
+                    <td>3</td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 6 Tân An B - Phường Tân Chính</td>
+                    <td>3</td>
+                    <td>36</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Bình A3 - Phường Thạc Gián</td>
+                    <td>3</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Xuân Hòa 1 - Phường Thanh Khê Đông</td>
+                    <td>5</td>
+                    <td>40</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 1 - Phường Thanh Khê Tây</td>
+                    <td>5</td>
+                    <td>85</td>
+                </tr>
+                <tr>
+                    <td>Chi hội 14 - Phường Tam Thuận</td>
+                    <td>1</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Trung Hòa B3 - Phường Vĩnh Trung</td>
+                    <td>3</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>Chi hội Thuận An 1 - Phường Xuân Hà</td>
+                    <td>24</td>
+                    <td>20</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+    <!-- Service End -->
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid footer bg-dark text-light footer mt-5 pt-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-12 text-center">
+            <h5 class="text-light mb-4">Thông tin liên hệ</h5>
+            <p class="mb-2">
+              <i class="fa fa-map-marker-alt me-3"></i>Quận Thanh Khê, Đà Nẵng
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-phone-alt me-3"></i>+84 123 456 789
+            </p>
+            <p class="mb-2">
+              <i class="fa fa-envelope me-3"></i>email@gmail.com
+            </p>
+            <div class="d-flex pt-2 justify-content-center">
+              <a class="btn btn-outline-light btn-social" href=""
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-outline-light btn-social" href=""
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
+      ><i class="bi bi-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="DataTables/datatables.min.js"></script>
+    <script src="DataTables/dataTables.responsive.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+      $('table').DataTable( {
+          responsive: true,
+          order: [],
+          language: {
+            "decimal":        "",
+            "emptyTable":     "Không có dữ liệu",
+            "info":           "Hiển thị từ dòng _START_ tới dòng _END_ của _TOTAL_ dòng",
+            "infoEmpty":      "Hiển thị từ dòng 0 tới dòng 0 của 0 dòng",
+            "infoFiltered":   "(Dữ liệu lọc từ _MAX_ dòng)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Hiển thị _MENU_ dòng",
+            "loadingRecords": "Đang tải...",
+            "processing":     "",
+            "search":         "Tìm kiếm:",
+            "zeroRecords":    "Dữ liệu không tìm thấy",
+            "paginate": {
+                "first":      "Đầu tiên",
+                "last":       "Cuối cùng",
+                "next":       "Sau",
+                "previous":   "Trước"
+            },
+            "aria": {
+                "orderable":  "Sắp xếp tăng dần theo cột này",
+                "orderableReverse": "Sắp xếp giảm dần theo cột này"
+            }
+          }
+      } );
+    </script>
+  </body>
+</html>

@@ -390,15 +390,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-bottom: 100px !important;
-    opacity: 0;
+    opacity: 1;
+    padding-bottom: 20px !important;
     transition: .5s;
 }
 
-.animal-item:hover .animal-text {
+/* .animal-item:hover .animal-text {
     opacity: 1;
     padding-bottom: 20px !important;
-}
+} */
 
 
 /*** Membership ***/
@@ -406,6 +406,7 @@
     padding: 45px 30px;
     color: #FFFFFF;
     background: rgba(0, 0, 0, .7);
+    height: 100%;
 }
 
 .membership-item img {
