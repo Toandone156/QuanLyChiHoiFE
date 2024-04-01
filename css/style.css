@@ -1,3 +1,41 @@
+/********** Personal CSS **********/
+.border-1{
+    border-radius: 1%;
+    border: 1px solid black;
+}
+.blog-content{
+    font-size: 25px;
+}
+/********** Template CSS **********/
+.panel {
+    margin-bottom: 0px;
+    background-color: #fff;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-default:nth-child(2n) {
+    background: #f5f5f5;
+}
+.panel-heading {
+    padding: 5px 5px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-body {
+    padding: 5px 2px 5px 5px;
+}
+.panel-default{
+    border: 1px solid black;
+    margin: 1%  0% 1% 0%;
+}
+.panel-default:hover{
+    background: #eceaea;
+}
+.Page{
+    padding: 0;;
+}
 /********** Template CSS **********/
 :root {
     --primary: #2EB872;
@@ -143,7 +181,7 @@
 
 /*** Header ***/
 .header-bg {
-    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/bg-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/hoatdong-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
