@@ -4,7 +4,7 @@
  *
  * To rebuild or modify this file with the latest versions of the included
  * software please visit:
- *   https://datatables.net/download/#dt/dt-2.0.3/r-3.0.1
+ *   https://datatables.net/download/#bs5/dt-2.0.3/r-3.0.1
  *
  * Included libraries:
  *   DataTables 2.0.3, Responsive 3.0.1
@@ -563,7 +563,7 @@
 		 *
 		 *  @type string
 		 */
-		builder: "dt/dt-2.0.3/r-3.0.1",
+		builder: "bs5/dt-2.0.3/r-3.0.1",
 	
 	
 		/**
@@ -11715,7 +11715,7 @@
 		 *
 		 *  @type string
 		 */
-		builder: "dt/dt-2.0.3/r-3.0.1",
+		builder: "bs5/dt-2.0.3/r-3.0.1",
 	
 	
 		/**
@@ -13656,8 +13656,8 @@
 }));
 
 
-/*! DataTables styling integration
- * ©2018 SpryMedia Ltd - datatables.net/license
+/*! DataTables Bootstrap 5 integration
+ * 2020 SpryMedia Ltd - datatables.net/license
  */
 
 (function( factory ){
@@ -13707,6 +13707,99 @@ var DataTable = $.fn.dataTable;
 
 
 
+/**
+ * DataTables integration for Bootstrap 5. This requires Bootstrap 5 and
+ * DataTables 2 or newer.
+ *
+ * This file sets the defaults and adds options to DataTables to style its
+ * controls using Bootstrap. See https://datatables.net/manual/styling/bootstrap
+ * for further information.
+ */
+
+/* Set the defaults for DataTables initialisation */
+$.extend( true, DataTable.defaults, {
+	renderer: 'bootstrap'
+} );
+
+
+/* Default class modification */
+$.extend( true, DataTable.ext.classes, {
+	container: "dt-container dt-bootstrap5",
+	search: {
+		input: "form-control form-control-sm"
+	},
+	length: {
+		select: "form-select form-select-sm"
+	},
+	processing: {
+		container: "dt-processing card"
+	}
+} );
+
+
+/* Bootstrap paging button renderer */
+DataTable.ext.renderer.pagingButton.bootstrap = function (settings, buttonType, content, active, disabled) {
+	var btnClasses = ['dt-paging-button', 'page-item'];
+
+	if (active) {
+		btnClasses.push('active');
+	}
+
+	if (disabled) {
+		btnClasses.push('disabled')
+	}
+
+	var li = $('<li>').addClass(btnClasses.join(' '));
+	var a = $('<a>', {
+		'href': disabled ? null : '#',
+		'class': 'page-link'
+	})
+		.html(content)
+		.appendTo(li);
+
+	return {
+		display: li,
+		clicker: a
+	};
+};
+
+DataTable.ext.renderer.pagingContainer.bootstrap = function (settings, buttonEls) {
+	return $('<ul/>').addClass('pagination').append(buttonEls);
+};
+
+DataTable.ext.renderer.layout.bootstrap = function ( settings, container, items ) {
+	var row = $( '<div/>', {
+			"class": items.full ?
+				'row mt-2 justify-content-md-center' :
+				'row mt-2 justify-content-between'
+		} )
+		.appendTo( container );
+
+	$.each( items, function (key, val) {
+		var klass;
+
+		// Apply start / end (left / right when ltr) margins
+		if (val.table) {
+			klass = 'col-12';
+		}
+		else if (key === 'start') {
+			klass = 'col-md-auto me-auto';
+		}
+		else if (key === 'end') {
+			klass = 'col-md-auto ms-auto';
+		}
+		else {
+			klass = 'col-md';
+		}
+
+		$( '<div/>', {
+				id: val.id || null,
+				"class": klass + ' ' + (val.className || '')
+			} )
+			.append( val.contents )
+			.appendTo( row );
+	} );
+};
 
 
 return DataTable;
@@ -15507,14 +15600,14 @@ return DataTable;
 }));
 
 
-/*! DataTables styling wrapper for Responsive
+/*! Bootstrap 5 integration for DataTables' Responsive
  * © SpryMedia Ltd - datatables.net/license
  */
 
 (function( factory ){
 	if ( typeof define === 'function' && define.amd ) {
 		// AMD
-		define( ['jquery', 'datatables.net-dt', 'datatables.net-responsive'], function ( $ ) {
+		define( ['jquery', 'datatables.net-bs5', 'datatables.net-responsive'], function ( $ ) {
 			return factory( $, window, document );
 		} );
 	}
@@ -15523,7 +15616,7 @@ return DataTable;
 		var jq = require('jquery');
 		var cjsRequires = function (root, $) {
 			if ( ! $.fn.dataTable ) {
-				require('datatables.net-dt')(root, $);
+				require('datatables.net-bs5')(root, $);
 			}
 
 			if ( ! $.fn.dataTable.Responsive ) {
@@ -15561,6 +15654,82 @@ return DataTable;
 var DataTable = $.fn.dataTable;
 
 
+
+var _display = DataTable.Responsive.display;
+var _original = _display.modal;
+var _modal = $(
+	'<div class="modal fade dtr-bs-modal" role="dialog">' +
+		'<div class="modal-dialog" role="document">' +
+		'<div class="modal-content">' +
+		'<div class="modal-header">' +
+		'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
+		'</div>' +
+		'<div class="modal-body"/>' +
+		'</div>' +
+		'</div>' +
+		'</div>'
+);
+var modal;
+
+// Note this could be undefined at the time of initialisation - the
+// DataTable.Responsive.bootstrap function can be used to set a different
+// bootstrap object
+var _bs = window.bootstrap;
+
+DataTable.Responsive.bootstrap = function (bs) {
+	_bs = bs;
+};
+
+_display.modal = function (options) {
+	if (!modal && _bs.Modal) {
+		modal = new _bs.Modal(_modal[0]);
+	}
+
+	return function (row, update, render, closeCallback) {
+		if (! modal) {
+			return _original(row, update, render, closeCallback);
+		}
+		else {
+			var rendered = render();
+
+			if (rendered === false) {
+				return false;
+			}
+
+			if (!update) {
+				if (options && options.header) {
+					var header = _modal.find('div.modal-header');
+					var button = header.find('button').detach();
+
+					header
+						.empty()
+						.append('<h4 class="modal-title">' + options.header(row) + '</h4>')
+						.append(button);
+				}
+
+				_modal.find('div.modal-body').empty().append(rendered);
+
+				_modal
+					.data('dtr-row-idx', row.index())
+					.one('hidden.bs.modal', closeCallback)
+					.appendTo('body');
+
+				modal.show();
+			}
+			else {
+				if ($.contains(document, _modal[0]) && row.index() === _modal.data('dtr-row-idx')) {
+					_modal.find('div.modal-body').empty().append(rendered);
+				}
+				else {
+					// Modal not shown for this row - do nothing
+					return null;
+				}
+			}
+
+			return true;
+		}
+	};
+};
 
 
 return DataTable;

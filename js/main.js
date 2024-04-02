@@ -10,10 +10,6 @@
         }, 1);
     };
     spinner();
-    
-    
-    // Initiate the wowjs
-    new WOW().init();
 
 
     // Sticky Navbar
@@ -37,13 +33,6 @@
     $('.back-to-top').click(function () {
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
-    });
-
-
-    // Facts counter
-    $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
     });
 
 
@@ -98,6 +87,44 @@
         $("#video").attr('src', $videoSrc);
     })
 
+    $('[data-bg]').each(function() {
+        // Extract the image URL from the data-bg attribute
+        const imageUrl = $(this).data('bg');
     
+        // Set the background-image style property
+        $(this).css('background', `linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(${imageUrl}) center center no-repeat`);
+        $(this).css('background-size', `cover`);
+      });
+
+    $('.responsive_table').DataTable( {
+        responsive: true,
+        lengthMenu: [5, 10, 15, { label: 'Toàn bộ', value: -1 }],
+        order: [],
+        language: {
+        "decimal":        "",
+        "emptyTable":     "Không có dữ liệu",
+        "info":           "Hiển thị từ dòng _START_ tới dòng _END_ của _TOTAL_ dòng",
+        "infoEmpty":      "Hiển thị từ dòng 0 tới dòng 0 của 0 dòng",
+        "infoFiltered":   "(Dữ liệu lọc từ _MAX_ dòng)",
+        "infoPostFix":    "",
+        "thousands":      ",",
+        "lengthMenu":     "Hiển thị _MENU_ dòng",
+        "loadingRecords": "Đang tải...",
+        "processing":     "",
+        "search":         "Tìm kiếm  ",
+        "zeroRecords":    "Dữ liệu không tìm thấy",
+        "paginate": {
+            "first":      "Đầu tiên",
+            "last":       "Cuối cùng",
+            "next":       "Sau",
+            "previous":   "Trước"
+        },
+        "aria": {
+            "orderable":  " sắp xếp tăng dần theo cột này",
+            "orderableReverse": "sắp xếp giảm dần theo cột này"
+        }
+        }
+    } );
 })(jQuery);
+
 
