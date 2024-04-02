@@ -96,35 +96,48 @@
         $(this).css('background-size', `cover`);
       });
 
-    $('.responsive_table').DataTable( {
-        responsive: true,
-        lengthMenu: [5, 10, 15, { label: 'Toàn bộ', value: -1 }],
-        order: [],
-        language: {
-        "decimal":        "",
-        "emptyTable":     "Không có dữ liệu",
-        "info":           "Hiển thị từ dòng _START_ tới dòng _END_ của _TOTAL_ dòng",
-        "infoEmpty":      "Hiển thị từ dòng 0 tới dòng 0 của 0 dòng",
-        "infoFiltered":   "(Dữ liệu lọc từ _MAX_ dòng)",
-        "infoPostFix":    "",
-        "thousands":      ",",
-        "lengthMenu":     "Hiển thị _MENU_ dòng",
-        "loadingRecords": "Đang tải...",
-        "processing":     "",
-        "search":         "Tìm kiếm  ",
-        "zeroRecords":    "Dữ liệu không tìm thấy",
-        "paginate": {
-            "first":      "Đầu tiên",
-            "last":       "Cuối cùng",
-            "next":       "Sau",
-            "previous":   "Trước"
-        },
-        "aria": {
-            "orderable":  " sắp xếp tăng dần theo cột này",
-            "orderableReverse": "sắp xếp giảm dần theo cột này"
+    var responsiveTable = $('.responsive_table').DataTable( GetOptions() );
+
+    function GetOptions() {
+        let objectOptions = {
+            responsive: true,
+            lengthMenu: [5, 10, 15, { label: 'Toàn bộ', value: -1 }],
+            order: [],
+            language: {
+            "decimal":        "",
+            "emptyTable":     "Không có dữ liệu",
+            "info":           "Hiển thị từ dòng _START_ tới dòng _END_ của _TOTAL_ dòng",
+            "infoEmpty":      "Hiển thị từ dòng 0 tới dòng 0 của 0 dòng",
+            "infoFiltered":   "(Dữ liệu lọc từ _MAX_ dòng)",
+            "infoPostFix":    "",
+            "thousands":      ",",
+            "lengthMenu":     "Hiển thị _MENU_ dòng",
+            "loadingRecords": "Đang tải...",
+            "processing":     "",
+            "search":         "Tìm kiếm  ",
+            "zeroRecords":    "Dữ liệu không tìm thấy",
+            "paginate": {
+                "first":      "Đầu tiên",
+                "last":       "Cuối cùng",
+                "next":       "Sau",
+                "previous":   "Trước"
+            },
+            "aria": {
+                "orderable":  " sắp xếp tăng dần theo cột này",
+                "orderableReverse": "sắp xếp giảm dần theo cột này"
+            }
+            }
+        };
+        
+        if($(window).width() < 768) {
+            objectOptions.columnDefs = [
+                { className: 'text-wrap all', targets: [0]},
+                { className: 'not-mobile', targets: ['_all']},
+            ];
         }
-        }
-    } );
+
+        return objectOptions;
+    }
 })(jQuery);
 
 
